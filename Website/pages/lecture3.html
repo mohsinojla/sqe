@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lecture 3 — McCall's Quality Factors | SE307T</title>
+<meta name="description" content="McCall's 11 software quality factors across product operation, revision and transition categories, with worked examples and sub-factor tables." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">Lecture 3</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">Lecture 3 &middot; 09-Sep-26</span>
+        <h1>Software Quality Factors (McCall's Model)</h1>
+        <p class="lede">Software projects usually get basic calculations right, but fail quietly
+        on maintenance, reliability, reuse and training — because nobody wrote requirements for
+        those aspects. McCall's model turns quality into 11 concrete, requirement-ready factors.</p>
+      </section>
+
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#requirements">Why quality requirements matter</a></li>
+          <li><a href="#model">McCall's factor model</a></li>
+          <li><a href="#operation">Product operation factors</a></li>
+          <li><a href="#revision">Product revision factors</a></li>
+          <li><a href="#transition">Product transition factors</a></li>
+          <li><a href="#subfactors">Sub-factor tables</a></li>
+        </ol>
+      </div>
+
+      <h2 id="requirements">Why quality requirements matter</h2>
+      <p>
+        The SQA process starts at the requirement specifications stage — quality factors must be
+        embedded from the very start. Software projects generally fulfill basic requirements for
+        correct calculations (correct inventory figures, correct average class scores, correct
+        loan interest), yet they routinely suffer poor performance in maintenance, reliability,
+        reuse or training. The root cause is simple: nobody wrote requirements to cover these
+        aspects of functionality.
+      </p>
+      <p>
+        McCall's model classifies the variety of issues around software attributes, use and
+        maintenance into content groups called <strong>quality factors</strong>.
+      </p>
+
+      <h2 id="model">McCall's factor model</h2>
+      <p>McCall's model organizes <strong>11 software quality factors</strong> into three categories:</p>
+
+      <div class="tag-row">
+        <span class="badge op">Product operation</span>
+        <span class="badge rev">Product revision</span>
+        <span class="badge tran">Product transition</span>
+      </div>
+
+      <svg class="diagram-svg factor-tree" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="McCall's quality tree: three branches — product operation, product revision, product transition — each with their own factors">
+        <style>
+          .mc-label { font: 600 13px "Segoe UI", sans-serif; fill: var(--text, #1c2128); }
+          .mc-cat { font: 700 13px "Segoe UI", sans-serif; }
+          .mc-line { stroke-width: 1.6; }
+        </style>
+        <text x="450" y="24" text-anchor="middle" class="mc-cat" fill="#3b3f9e">Quality Software</text>
+        <line x1="450" y1="32" x2="450" y2="55" stroke="#9aa0c9" class="mc-line"/>
+        <line x1="450" y1="55" x2="150" y2="55" stroke="#9aa0c9" class="mc-line"/>
+        <line x1="450" y1="55" x2="450" y2="55" stroke="#9aa0c9" class="mc-line"/>
+        <line x1="450" y1="55" x2="750" y2="55" stroke="#9aa0c9" class="mc-line"/>
+
+        <!-- Product transition (left) -->
+        <line x1="150" y1="55" x2="150" y2="85" stroke="#8b6bd6" class="mc-line"/>
+        <text x="150" y="100" text-anchor="middle" class="mc-cat" fill="#8b6bd6">Product Transition</text>
+        <line x1="150" y1="105" x2="60" y2="140" stroke="#8b6bd6" class="mc-line"/>
+        <line x1="150" y1="105" x2="150" y2="140" stroke="#8b6bd6" class="mc-line"/>
+        <line x1="150" y1="105" x2="240" y2="140" stroke="#8b6bd6" class="mc-line"/>
+        <text x="60" y="158" text-anchor="middle" class="mc-label">Portability</text>
+        <text x="150" y="158" text-anchor="middle" class="mc-label">Reusability</text>
+        <text x="240" y="158" text-anchor="middle" class="mc-label">Interoperability</text>
+
+        <!-- Product operation (center) -->
+        <line x1="450" y1="55" x2="450" y2="85" stroke="#1c8a5c" class="mc-line"/>
+        <text x="450" y="100" text-anchor="middle" class="mc-cat" fill="#1c8a5c">Product Operation</text>
+        <line x1="450" y1="105" x2="330" y2="145" stroke="#1c8a5c" class="mc-line"/>
+        <line x1="450" y1="105" x2="405" y2="145" stroke="#1c8a5c" class="mc-line"/>
+        <line x1="450" y1="105" x2="450" y2="145" stroke="#1c8a5c" class="mc-line"/>
+        <line x1="450" y1="105" x2="495" y2="145" stroke="#1c8a5c" class="mc-line"/>
+        <line x1="450" y1="105" x2="570" y2="145" stroke="#1c8a5c" class="mc-line"/>
+        <text x="330" y="163" text-anchor="middle" class="mc-label">Correctness</text>
+        <text x="405" y="163" text-anchor="middle" class="mc-label">Reliability</text>
+        <text x="450" y="180" text-anchor="middle" class="mc-label">Efficiency</text>
+        <text x="495" y="163" text-anchor="middle" class="mc-label">Integrity</text>
+        <text x="570" y="163" text-anchor="middle" class="mc-label">Usability</text>
+
+        <!-- Product revision (right) -->
+        <line x1="750" y1="55" x2="750" y2="85" stroke="#b3550a" class="mc-line"/>
+        <text x="750" y="100" text-anchor="middle" class="mc-cat" fill="#b3550a">Product Revision</text>
+        <line x1="750" y1="105" x2="670" y2="140" stroke="#b3550a" class="mc-line"/>
+        <line x1="750" y1="105" x2="750" y2="140" stroke="#b3550a" class="mc-line"/>
+        <line x1="750" y1="105" x2="830" y2="140" stroke="#b3550a" class="mc-line"/>
+        <text x="670" y="158" text-anchor="middle" class="mc-label">Maintainability</text>
+        <text x="750" y="158" text-anchor="middle" class="mc-label">Flexibility</text>
+        <text x="830" y="158" text-anchor="middle" class="mc-label">Testability</text>
+      </svg>
+
+      <h2 id="operation">Product operation factors</h2>
+      <p>These five factors govern how the software behaves while it is running.</p>
+
+      <div class="card">
+        <h3>1. Correctness</h3>
+        <p>Output specifications requiring correctness are multidimensional:</p>
+        <ul>
+          <li><strong>Output mission</strong> — e.g. a sales invoice printout, or a red alarm when temperature rises above 250°F.</li>
+          <li><strong>Required accuracy</strong> of outputs that can be hurt by inaccurate data or calculations.</li>
+          <li><strong>Completeness</strong> of the output information.</li>
+          <li><strong>Up-to-dateness</strong> — the time between an event and its consideration by the system.</li>
+          <li><strong>Availability</strong> — the reaction time needed to obtain requested information.</li>
+          <li><strong>Coding &amp; documentation standards</strong> the system must comply with.</li>
+        </ul>
+        <div class="example">
+          <span class="example-label">Example — club membership system</span>
+          <p>Output mission: "A defined list of 11 types of reports, four types of standard letters
+          to members and eight types of queries, displayed on the monitor on request."</p>
+          <p>Accuracy: "The probability for a non-accurate output, containing one or more mistakes,
+          will not exceed 1%."</p>
+          <p>Completeness: "The probability of missing data about a member, attendance at club
+          events, and payments will not exceed 1%."</p>
+          <p>Up-to-dateness: "Not more than two working days for information about participation
+          in events."</p>
+          <p>Availability: "Reaction time for queries will be less than two seconds on average;
+          reaction time for reports will be less than four hours."</p>
+          <p>Standards: "The software and its documentation are required to comply with the
+          client's guidelines."</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2. Reliability</h3>
+        <p>Deals with failures to provide service — the maximum allowed system failure rate, for
+        the whole system or one or more of its functions.</p>
+        <div class="example">
+          <span class="example-label">Example — bank system</span>
+          "The bank's software system will not fail, on average, more than 10 minutes per month
+          during office hours. The probability that off-time (repair + recovery of all bank
+          services) exceeds 30 minutes is required to be less than 0.5%."
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3. Efficiency</h3>
+        <p>The hardware resources needed to perform all the software's functions.</p>
+        <div class="example">
+          <span class="example-label">Which bid is more efficient?</span>
+          A chain of stores compares two bids with identical computers but different storage
+          (250&nbsp;GB/branch + 5&nbsp;TB HQ vs. 200&nbsp;GB/branch + 3&nbsp;TB HQ) and different
+          numbers of 10&nbsp;MBPS communication lines (three vs. two per branch) — efficiency
+          requirements must be specified precisely enough to compare such trade-offs.
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>4. Integrity</h3>
+          <p>Deals with software system security — preventing access by unauthorized persons,
+          and restricting "read" and "write" access.</p>
+        </div>
+        <div class="card">
+          <h3>5. Usability</h3>
+          <p>The scope of staff resources needed to train a new employee and operate the system.</p>
+          <div class="example">
+            <span class="example-label">Example</span>
+            (a) A staff member should handle at least 60 service calls a day using the system.
+            (b) Training a new employee takes no more than two days (16 hours), after which the
+            trainee can handle 45 service calls a day.
+          </div>
+        </div>
+      </div>
+
+      <h2 id="revision">Product revision factors</h2>
+      <p>These three factors govern how easily the software can be changed after release.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>1. Maintainability</h3>
+          <p>The effort needed by users and maintenance staff to identify the reasons for
+          failures, correct them, and verify the correction — supported by modular structure,
+          internal program documentation, and the programmer's manual.</p>
+        </div>
+        <div class="card">
+          <h3>2. Flexibility</h3>
+          <p>The capabilities and effort required for adaptive maintenance — adapting the
+          software to different customers or extents of activity, and to changes in the firm's
+          technical/commercial environment.</p>
+          <div class="example">
+            <span class="example-label">Example</span>
+            "The software should be suitable for teachers of all subjects and all school levels
+            (elementary, junior and high schools)."
+          </div>
+        </div>
+        <div class="card">
+          <h3>3. Testability</h3>
+          <p>Special features that help the tester — predefined intermediate results, log files,
+          and automatic diagnostics at startup.</p>
+        </div>
+      </div>
+
+      <h2 id="transition">Product transition factors</h2>
+      <p>These three factors govern how the software moves across environments and projects.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>1. Portability</h3>
+          <p>Adapting a software system to other environments — different hardware, different
+          operating systems, and so on.</p>
+        </div>
+        <div class="card">
+          <h3>2. Reusability</h3>
+          <p>Using modules originally designed for one project in a new project — saving
+          development resources, shortening the development period, and providing higher-quality
+          modules (most faults were already found by QA on the original software).</p>
+        </div>
+        <div class="card">
+          <h3>3. Interoperability</h3>
+          <p>Creating interfaces with other software systems or with other equipment firmware.</p>
+        </div>
+      </div>
+
+      <h2 id="subfactors">Software compliance with quality factors — sub-factor tables</h2>
+      <p>Each of the 11 factors decomposes into measurable sub-factors used to assess compliance:</p>
+
+      <h3><span class="badge op">Product operation</span></h3>
+      <table>
+        <tr><th>Quality factor</th><th>Sub-factors</th></tr>
+        <tr><td>Correctness</td><td>Accuracy; Completeness; Up-to-dateness; Availability (response time); Coding and documentation guidelines compliance (consistency)</td></tr>
+        <tr><td>Reliability</td><td>System reliability; Application reliability; Computational failure recovery; Hardware failure recovery</td></tr>
+        <tr><td>Efficiency</td><td>Efficiency of processing; Efficiency of storage; Efficiency of communication; Efficiency of power usage (portable units)</td></tr>
+        <tr><td>Integrity</td><td>Access control; Access audit</td></tr>
+        <tr><td>Usability</td><td>Operability; Training</td></tr>
+      </table>
+
+      <h3><span class="badge rev">Product revision</span></h3>
+      <table>
+        <tr><th>Quality factor</th><th>Sub-factors</th></tr>
+        <tr><td>Maintainability</td><td>Simplicity; Modularity; Self-descriptiveness; Coding and documentation guidelines compliance (consistency); Document accessibility</td></tr>
+        <tr><td>Flexibility</td><td>Modularity; Generality; Simplicity; Self-descriptiveness</td></tr>
+        <tr><td>Testability</td><td>User testability; Failure maintenance testability; Traceability</td></tr>
+      </table>
+
+      <h3><span class="badge tran">Product transition</span></h3>
+      <table>
+        <tr><th>Quality factor</th><th>Sub-factors</th></tr>
+        <tr><td>Portability</td><td>Software system independence; Modularity; Self-descriptive</td></tr>
+        <tr><td>Reusability</td><td>Modularity; Document accessibility; Software system independence; Application independence; Self-descriptive; Generality; Simplicity</td></tr>
+        <tr><td>Interoperability</td><td>Commonality; System compatibility; Software system independence; Modularity</td></tr>
+      </table>
+
+      <div class="footer-nav">
+        <a href="lecture2.html"><span class="dir">&larr; Previous</span><div class="title">Lecture 2 — Software Quality &amp; SQA</div></a>
+        <a class="next" href="lecture4.html"><span class="dir">Next</span><div class="title">Lecture 4 — SQA System Components &rarr;</div></a>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

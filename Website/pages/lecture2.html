@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lecture 2 — Software Quality | SE307T</title>
+<meta name="description" content="Errors, faults and failures; the 9 reasons for software errors; Pressman's definition of software quality; SQA vs quality control." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">Lecture 2</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">Lecture 2 &middot; 07-Sep-26</span>
+        <h1>Software Quality</h1>
+        <p class="lede">What software actually is, how a small human error turns into a customer-facing
+        failure, the nine root causes behind software errors, and how SQA differs from quality control.</p>
+      </section>
+
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#software">What is "software"?</a></li>
+          <li><a href="#efc">Errors, faults &amp; failures</a></li>
+          <li><a href="#reasons">9 reasons for software errors</a></li>
+          <li><a href="#quality-def">Software quality — Pressman's definition</a></li>
+          <li><a href="#sqa-def">Software quality assurance</a></li>
+          <li><a href="#qc-vs-qa">Quality control vs. quality assurance</a></li>
+          <li><a href="#sqa-se">SQA and software engineering</a></li>
+        </ol>
+      </div>
+
+      <h2 id="software">What is "software"?</h2>
+      <div class="note">
+        <strong>IEEE definition (Frame 2.1):</strong> Software is computer programs, procedures,
+        and possibly associated documentation and data pertaining to the operation of a computer system.
+      </div>
+      <table>
+        <tr><th>Component</th><th>Meaning</th></tr>
+        <tr><td>Computer programs</td><td>Code.</td></tr>
+        <tr><td>Procedures</td><td>The order and schedule in which programs are performed, the method employed, and the person responsible for the activities.</td></tr>
+        <tr><td>Documentation</td><td>Requirements reports, design reports, program descriptions, user's manual, programmer's software manual.</td></tr>
+        <tr><td>Data</td><td>Parameters, codes and name lists, standard test data.</td></tr>
+      </table>
+
+      <h2 id="efc">Errors, faults &amp; failures</h2>
+      <p>These three terms describe successive stages of the same underlying problem:</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Software error</h3>
+          <p>Made by a programmer — a grammatical error in code, or a logical error in carrying out
+          one or more of the client's requirements.</p>
+        </div>
+        <div class="card">
+          <h3>Software fault</h3>
+          <p>A software error that can cause improper functioning of the software in general or in
+          a specific application.</p>
+        </div>
+        <div class="card">
+          <h3>Software failure</h3>
+          <p>Disruption of the use of the software caused by triggering ("activating") a certain fault.</p>
+        </div>
+      </div>
+      <p>
+        A fault becomes a failure only when it is <em>activated</em>. Many faults are never activated
+        because users never exercise the affected feature, or because the specific combination of
+        conditions needed to trigger the fault never occurs.
+      </p>
+
+      <h2 id="reasons">9 reasons for software errors</h2>
+      <p>Software errors trace back to nine recurring root causes across the lifecycle:</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>1. Faulty requirements definition</h3>
+          <p>Erroneous, absent, incomplete, or unnecessary requirements.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2. Client–developer communication failures</h3>
+          <p>The classic "tree swing" problem — what the customer explained, what the account
+          manager understood, what the project manager defined, and what was actually built rarely match.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>3. Deliberate deviations from software requirements</h3>
+          <p>Reusing modules without adapting them to new requirements, omitting functions under
+          budget/timeline pressure, or developer-initiated unapproved "improvements." Even
+          "minor" changes can eventually cause errors.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>4. Logical design errors</h3>
+          <p>Erroneous algorithms, erroneous boundary conditions, or omission of required system states.</p>
+          <div class="example">
+            <span class="example-label">Example</span>
+            A real-time computerized boiler must react to combinations of temperature and pressure —
+            but no reaction is defined for when temperature exceeds 120°C <em>and</em> pressure is
+            between 6 and 8 atmospheres.
+          </div>
+          <p>The lecture also illustrates common logical/memory bugs in C, such as leaking or
+          mismanaging heap memory:</p>
+          <pre><code>void main()
+{
+    int *p, *q;
+
+    p = (int *)malloc(sizeof(int));
+    q = (int *)malloc(sizeof(int));
+    *p = 10;
+    *q = 20;
+    *p = *q;
+    printf("%d\n", *p);
+}</code></pre>
+          <p>A corrected pattern checks the allocation and frees the memory it owns:</p>
+          <pre><code>int main()
+{
+    int *p;
+    p = (int *)malloc(sizeof(int));
+    if (p == 0)
+    {
+        printf("ERROR: Out of memory\n");
+        return 1;
+    }
+    *p = 5;
+    printf("%d\n", *p);
+    free(p);
+    return 0;
+}</code></pre>
+        </div>
+        <div class="timeline-item">
+          <h3>5. Coding errors</h3>
+          <p>Misunderstanding the design documentation, linguistic errors in the programming
+          language, and errors in data selection.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>6. Non-compliance with documentation &amp; coding instructions</h3>
+          <p>Teams are required to comply with templates and coding instructions; non-compliance
+          causes errors.</p>
+          <div class="note">This becomes critical with multiple teams working in phases — a
+          non-complying team's errors snowball, increasing the probability of system failures.</div>
+        </div>
+        <div class="timeline-item">
+          <h3>7. Shortcomings of the testing process</h3>
+          <p>Incomplete test plans that leave portions of the software untested, failure to
+          document/report detected errors, failure to promptly correct detected faults, and
+          incomplete corrections due to negligence or time pressure.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>8. Procedure errors</h3>
+          <p>Incorrect procedures adopted for a calculation. Worked example from the slides:</p>
+          <table>
+            <tr><th></th><th>Quiz 1</th><th>Quiz 2</th><th>Quiz 3</th><th>Quiz 4</th><th>Total</th></tr>
+            <tr><td>Marks</td><td>25</td><td>20</td><td>15</td><td>30</td><td>90</td></tr>
+            <tr><td>Marks obtained</td><td>22</td><td>14</td><td>8</td><td>26</td><td>70</td></tr>
+          </table>
+          <p>With all quizzes carrying equal weightage, the average marks obtained out of 10% is
+          calculated as <strong>7.44</strong>.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>9. Documentation errors</h3>
+          <p>Omission of software functions, errors in explanations/instructions given to users,
+          and listing of non-existing functions — features planned early but later dropped, or
+          features active in a previous version but cancelled in the current one.</p>
+        </div>
+      </div>
+
+      <h2 id="quality-def">Software quality — Pressman's definition</h2>
+      <div class="quote">
+        "Conformance to explicitly stated functional and performance requirements, explicitly
+        documented development standards, and implicit characteristics that are expected of all
+        professionally developed software."
+      </div>
+      <p>This implies three requirements the developer must satisfy for quality assurance:</p>
+      <ul>
+        <li>Specific functional requirements — mainly the outputs of the software system.</li>
+        <li>The software quality standards stated in the contract.</li>
+        <li>Good software engineering practices reflecting state-of-the-art professional practice
+        — required even when not explicitly mentioned in the contract.</li>
+      </ul>
+
+      <h2 id="sqa-def">Software quality assurance</h2>
+      <div class="note">
+        <strong>IEEE definition (Frame 2.5):</strong>
+        <ol>
+          <li>A planned and systematic pattern of all actions necessary to provide adequate
+          confidence that an item or product conforms to established technical requirements.</li>
+          <li>A set of activities designed to evaluate the process by which the products are
+          developed or manufactured. Contrast with quality control.</li>
+        </ol>
+      </div>
+      <div class="note">
+        <strong>Expanded definition (Frame 2.6):</strong> Software quality assurance is a
+        systematic, planned set of actions necessary to provide adequate confidence that the
+        software development or maintenance process conforms to established functional technical
+        requirements as well as the managerial requirements of keeping schedule and operating
+        within budgetary confines.
+      </div>
+
+      <h2 id="qc-vs-qa">Quality control vs. quality assurance</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Quality control</h3>
+          <p>"A set of activities designed to evaluate the quality of a developed or manufactured
+          product" (IEEE, 1991) — done <strong>once production is complete</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>Quality assurance</h3>
+          <p>A variety of activities performed <strong>throughout</strong> the development and
+          manufacturing processes, substantially reducing the rate of products that do not
+          qualify for shipment.</p>
+        </div>
+      </div>
+
+      <h2 id="sqa-se">SQA and software engineering</h2>
+      <p>Software engineering is defined as: (1) the application of a systematic, disciplined,
+      quantifiable approach to the development, operation and maintenance of software — i.e. the
+      application of engineering to software; and (2) the study of approaches as in (1).</p>
+      <div class="note">
+        When making decisions about software methodologies and tools, SQA considerations must be
+        added to the efficiency and economy considerations normally associated with software engineering.
+      </div>
+
+      <div class="footer-nav">
+        <a href="lecture1.html"><span class="dir">&larr; Previous</span><div class="title">Lecture 1 — Introduction</div></a>
+        <a class="next" href="lecture3.html"><span class="dir">Next</span><div class="title">Lecture 3 — McCall's Quality Factors &rarr;</div></a>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

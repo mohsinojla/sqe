@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ISO/IEC/IEEE 90003:2018 | SE307T</title>
+<meta name="description" content="Guidelines for applying ISO 9001:2015 to computer software — scope, structure, quality management principles, PDCA cycle and risk-based thinking." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">ISO/IEC/IEEE 90003:2018</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">International Standard &middot; First edition 2018-11</span>
+        <h1>ISO/IEC/IEEE 90003:2018</h1>
+        <p class="lede">Software engineering — Guidelines for the application of ISO 9001:2015 to
+        computer software. This standard does not add new requirements; it explains how the
+        generic ISO 9001 quality management requirements apply specifically to software.</p>
+      </section>
+
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#scope">Scope</a></li>
+          <li><a href="#principles">Quality management principles</a></li>
+          <li><a href="#pdca">The process approach &amp; PDCA cycle</a></li>
+          <li><a href="#risk">Risk-based thinking</a></li>
+          <li><a href="#structure">Document structure (Clauses 1–10)</a></li>
+          <li><a href="#terms">Key terms &amp; definitions</a></li>
+        </ol>
+      </div>
+
+      <h2 id="scope">Scope</h2>
+      <p>ISO 9001:2015 specifies requirements for a quality management system where an organization:</p>
+      <ul>
+        <li>needs to demonstrate its ability to consistently provide products and services that
+        meet customer and applicable statutory/regulatory requirements, and</li>
+        <li>aims to enhance customer satisfaction through effective application of the system,
+        including processes for improvement and assurance of conformity.</li>
+      </ul>
+      <p>
+        ISO/IEC/IEEE 90003:2018 provides guidance for organizations applying ISO 9001:2015 to the
+        <strong>acquisition, supply, development, operation and maintenance</strong> of computer
+        software and related support services. It does not add to or change ISO 9001:2015's
+        requirements — it is independent of technology, life-cycle models, development processes,
+        activity sequence and organizational structure.
+      </p>
+      <div class="note">
+        The guidelines are not intended for use as certification/registration assessment criteria,
+        though organizations may choose to use this document alongside ISO 9001 for that purpose.
+      </div>
+
+      <h2 id="principles">Quality management principles</h2>
+      <p>The standard is grounded in seven principles from ISO 9000:</p>
+      <div class="pill-list">
+        <span class="pill">Customer focus</span>
+        <span class="pill">Leadership</span>
+        <span class="pill">Engagement of people</span>
+        <span class="pill">Process approach</span>
+        <span class="pill">Improvement</span>
+        <span class="pill">Evidence-based decision making</span>
+        <span class="pill">Relationship management</span>
+      </div>
+
+      <h3>Verbal forms used throughout the standard</h3>
+      <table>
+        <tr><th>Word</th><th>Meaning</th></tr>
+        <tr><td><strong>shall</strong></td><td>Indicates a requirement.</td></tr>
+        <tr><td><strong>should</strong></td><td>Indicates a recommendation.</td></tr>
+        <tr><td><strong>may</strong></td><td>Indicates a permission.</td></tr>
+        <tr><td><strong>can</strong></td><td>Indicates a possibility or capability.</td></tr>
+      </table>
+
+      <h2 id="pdca">The process approach &amp; PDCA cycle</h2>
+      <p>
+        The standard promotes a <strong>process approach</strong>: understanding and managing
+        interrelated processes as a system, so the organization can control interdependencies and
+        enhance overall performance. Management of processes and the system as a whole uses the
+        <strong>Plan-Do-Check-Act (PDCA)</strong> cycle.
+      </p>
+
+      <svg class="diagram-svg" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PDCA cycle: Plan leads to Do, Do leads to Check, Check leads to Act, Act leads back to Plan">
+        <circle cx="320" cy="130" r="110" fill="none" stroke="#c8ccdd" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <g font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">
+          <circle cx="320" cy="40" r="42" fill="#e4f4ec" stroke="#1c8a5c"/>
+          <text x="320" y="45" text-anchor="middle" fill="#1c8a5c">Plan</text>
+          <circle cx="420" cy="130" r="42" fill="#fdf0e2" stroke="#b3550a"/>
+          <text x="420" y="135" text-anchor="middle" fill="#b3550a">Do</text>
+          <circle cx="320" cy="220" r="42" fill="#f0e9fc" stroke="#6a5acd"/>
+          <text x="320" y="225" text-anchor="middle" fill="#6a5acd">Check</text>
+          <circle cx="220" cy="130" r="42" fill="#eceaff" stroke="#3b3f9e"/>
+          <text x="220" y="135" text-anchor="middle" fill="#3b3f9e">Act</text>
+        </g>
+        <defs>
+          <marker id="arrowP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#7a8095"/>
+          </marker>
+        </defs>
+        <g stroke="#7a8095" stroke-width="1.6" fill="none" marker-end="url(#arrowP)">
+          <path d="M355,68 A80,80 0 0 1 390,100"/>
+          <path d="M390,162 A80,80 0 0 1 355,192"/>
+          <path d="M285,192 A80,80 0 0 1 250,162"/>
+          <path d="M250,100 A80,80 0 0 1 285,68"/>
+        </g>
+      </svg>
+
+      <table>
+        <tr><th>Stage</th><th>Description</th></tr>
+        <tr><td><strong>Plan</strong></td><td>Establish the objectives of the system and its processes, and the resources needed to deliver results per customer requirements and organizational policy; identify and address risks and opportunities.</td></tr>
+        <tr><td><strong>Do</strong></td><td>Implement what was planned.</td></tr>
+        <tr><td><strong>Check</strong></td><td>Monitor and measure processes and resulting products/services against policies, objectives, requirements and planned activities; report results.</td></tr>
+        <tr><td><strong>Act</strong></td><td>Take actions to improve performance, as necessary.</td></tr>
+      </table>
+
+      <h2 id="risk">Risk-based thinking</h2>
+      <p>
+        Risk-based thinking is essential for an effective QMS. Organizations must plan and
+        implement actions to address both risks and opportunities — increasing effectiveness,
+        achieving improved results, and preventing negative effects.
+      </p>
+      <div class="note">
+        Risk is the effect of uncertainty, and uncertainty can have positive or negative effects.
+        A positive deviation arising from a risk can provide an opportunity — but not all positive
+        effects of risk result in opportunities.
+      </div>
+
+      <h2 id="structure">Document structure (Clauses 1–10)</h2>
+      <p>The standard follows ISO's harmonized high-level structure for management-system standards:</p>
+      <table>
+        <tr><th>Clause</th><th>Topic</th></tr>
+        <tr><td>1</td><td>Scope</td></tr>
+        <tr><td>2</td><td>Normative references</td></tr>
+        <tr><td>3</td><td>Terms and definitions</td></tr>
+        <tr><td>4</td><td>Context of the organization</td></tr>
+        <tr><td>5</td><td>Leadership</td></tr>
+        <tr><td>6</td><td>Planning</td></tr>
+        <tr><td>7</td><td>Support (resources, competence, awareness, communication, documented information)</td></tr>
+        <tr><td>8</td><td>Operation (requirements, design &amp; development, external providers, production, release, nonconforming outputs)</td></tr>
+        <tr><td>9</td><td>Performance evaluation (monitoring, internal audit, management review)</td></tr>
+        <tr><td>10</td><td>Improvement (nonconformity, corrective action, continual improvement)</td></tr>
+      </table>
+      <p>Clauses 4–10 map onto the PDCA cycle: <strong>Plan</strong> = Planning (6); <strong>Do</strong>
+      = Support &amp; Operation (7, 8); <strong>Check</strong> = Performance evaluation (9);
+      <strong>Act</strong> = Improvement (10) — all held together by Leadership (5).</p>
+
+      <h2 id="terms">Key terms &amp; definitions</h2>
+      <table>
+        <tr><th>Term</th><th>Definition</th></tr>
+        <tr><td><strong>Baseline</strong></td><td>Formally approved version of a configuration item, regardless of media, formally designated and fixed at a specific time during the configuration item's life cycle.</td></tr>
+        <tr><td><strong>Configuration item</strong></td><td>An item or aggregation of hardware, software, or both, designated for configuration management and treated as a single entity in the configuration management process.</td></tr>
+        <tr><td><strong>COTS</strong></td><td>Commercial-Off-The-Shelf — a product available for purchase and use without the need to conduct development activities.</td></tr>
+        <tr><td><strong>Implementation</strong></td><td>The process of translating a design into hardware components, software components, or both.</td></tr>
+        <tr><td><strong>Life cycle model</strong></td><td>A framework of processes and activities concerned with the life cycle, organized into stages, which also acts as a common reference for communication and understanding.</td></tr>
+        <tr><td><strong>Regression testing</strong></td><td>Testing following modification to a test item or its operational environment, to identify whether regression failures occur.</td></tr>
+      </table>
+
+      <div class="footer-nav">
+        <a href="lecture5.html"><span class="dir">&larr; Previous</span><div class="title">Lecture 5 — Quality Engineering</div></a>
+        <a class="next" href="proposal-review.html"><span class="dir">Next</span><div class="title">Contract Review Checklists &rarr;</div></a>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lecture 1 — Introduction | SE307T</title>
+<meta name="description" content="Course logistics, what quality means, and why software needs its own quality assurance discipline." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">Lecture 1</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">Lecture 1 &middot; 07-Sep-26</span>
+        <h1>Introduction</h1>
+        <p class="lede">Course logistics, what "quality" really means, why it matters most in
+        critical systems, and why software development needs its own quality assurance framework.</p>
+      </section>
+
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#logistics">Course logistics</a></li>
+          <li><a href="#objectives">Course objectives</a></li>
+          <li><a href="#contents">Course contents</a></li>
+          <li><a href="#quality">What is quality?</a></li>
+          <li><a href="#critical">Highly critical systems</a></li>
+          <li><a href="#why-sqa">Why software quality assurance?</a></li>
+          <li><a href="#challenges">Software development environment challenges</a></li>
+          <li><a href="#qa">Quality assurance as a profession</a></li>
+        </ol>
+      </div>
+
+      <h2 id="logistics">Course logistics</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Basics</h3>
+          <ul>
+            <li>Pre-requisite: <strong>Nil</strong></li>
+            <li>Credits: <strong>3 + 0</strong></li>
+            <li>Updates via Google Classroom (code: <code>6fby5boc</code>)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Text books</h3>
+          <ul>
+            <li>Daniel Galin, <em>Software Quality Assurance: From Theory to Implementation</em>, Pearson, 2004.</li>
+            <li>Jeff Tian, <em>Software Quality Engineering: Testing, Quality Assurance, and Quantifiable Improvement</em>, IEEE Computer Society, 2005.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Grading (Theory — 100%)</h3>
+          <table>
+            <tr><th>Component</th><th>Weight</th></tr>
+            <tr><td>Quizzes</td><td>10%</td></tr>
+            <tr><td>Assignments / Term Project</td><td>20%</td></tr>
+            <tr><td>Mid-semester evaluation</td><td>30%</td></tr>
+            <tr><td>Final exam</td><td>40%</td></tr>
+          </table>
+          <p><strong>Quiz policy:</strong> quizzes are announced; a missed quiz scores zero — there is no "best of" policy.</p>
+        </div>
+        <div class="card">
+          <h3>Attendance &amp; plagiarism</h3>
+          <ul>
+            <li>75% attendance is mandatory to sit the final exam (university policy).</li>
+            <li>Do not copy from others, and do not let others copy your work.</li>
+          </ul>
+          <div class="note">Don't put the instructor and yourself in an awkward situation — follow the norms.</div>
+        </div>
+      </div>
+
+      <h2 id="objectives">Course objectives</h2>
+      <ul>
+        <li>Develop software quality assurance plans, processes, and standards appropriate to different software development environments.</li>
+        <li>Understand and apply software quality metrics and testing techniques to monitor and improve software quality throughout the development lifecycle.</li>
+        <li>Understand and implement SQA procedures to systematically evaluate software quality and achieve effective project quality management.</li>
+      </ul>
+
+      <h2 id="contents">Course contents</h2>
+      <p>The course deals with three major aspects needed to achieve quality systems:</p>
+      <ol>
+        <li>Designing a quality management system.</li>
+        <li>Identifying the metrics to measure quality.</li>
+        <li>Evaluating the system to achieve quality across the complete project lifecycle.</li>
+      </ol>
+
+      <h2 id="quality">What is quality?</h2>
+      <p>
+        Quality is not a single idea — it involves many factors. Popular opinion treats it as
+        an intangible thing that is <em>experienced</em>, not measured. A simple comparison makes
+        the point: two watches can both "work right," yet differ sharply once you ask deeper
+        questions.
+      </p>
+      <table>
+        <tr><th>Question</th><th>Everyday watch</th><th>Premium watch</th></tr>
+        <tr><td>Does it work right?</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Does it rightly work?</td><td>Yes</td><td>?</td></tr>
+        <tr><td>Does it meet standard?</td><td>Yes</td><td>?</td></tr>
+        <tr><td>Longevity</td><td>Yes</td><td>?</td></tr>
+        <tr><td>Value for money</td><td>Yes</td><td>Yes</td></tr>
+      </table>
+      <p>
+        Should this "popular opinion" view — quality as a felt, subjective impression — be applied
+        to systems like tax filing, grade calculation, financial transactions, or travel booking?
+        These are not matters of taste; they must be objectively correct.
+      </p>
+
+      <h2 id="critical">Highly critical systems</h2>
+      <p>Some systems leave zero room for subjective quality: medical record systems, diagnostics,
+      epidemiology, and flight navigation. History has harsh examples of what happens when quality
+      assurance fails in such systems:</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Space Shuttle Challenger disaster — 28 January 1986</h3>
+          <p>A well-known catastrophic failure attributed to inadequate engineering risk assessment,
+          killing all seven crew members: Francis R. Scobee (Commander), Michael J. Smith (Pilot),
+          Ronald McNair, Ellison Onizuka, Judith Resnik (Mission Specialists), Greg Jarvis
+          (Payload Specialist), and Christa McAuliffe (Payload Specialist).</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Mars Climate Orbiter — 1999</h3>
+          <p>NASA's $125 million orbiter was lost because engineers failed to convert between
+          English (imperial) and metric units. The mismatch sent the craft fatally close to the
+          Martian surface — a lapse that was never caught by the checks and balances at the Jet
+          Propulsion Laboratory.</p>
+        </div>
+      </div>
+
+      <h2 id="why-sqa">Why software quality?</h2>
+      <p>
+        Two questions frame this course: why do we need an entire framework for software quality
+        assurance, and why can't general quality assurance principles simply be reused for
+        software the way they are for physical products?
+      </p>
+      <table>
+        <tr><th>Characteristic</th><th>Software products</th><th>Other industrial products</th></tr>
+        <tr>
+          <td>Complexity</td>
+          <td>Usually very complex — allows a very large number of operational options.</td>
+          <td>Complexity is much lower — at most a few thousand operational options.</td>
+        </tr>
+        <tr>
+          <td>Visibility of product</td>
+          <td>Invisible product; impossible to detect defects or omissions by sight (e.g. a CD storing the software).</td>
+          <td>Visible product, allowing effective detection of defects by sight.</td>
+        </tr>
+        <tr>
+          <td>Nature of development &amp; production process</td>
+          <td>Opportunities to detect defects arise in only one phase — product development.</td>
+          <td>Opportunities to detect defects arise across all phases: product development, production planning, manufacturing.</td>
+        </tr>
+      </table>
+
+      <h2 id="challenges">Software development environment challenges</h2>
+      <p>The software environment imposes seven recurring challenges that shape why SQA must exist:</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>1. Contractual conditions</h3>
+          <p>A defined list of functional requirements the software and its maintenance must fulfill,
+          plus a fixed project budget and timetable.</p>
+          <div class="note">Working within predefined budget and timeline conditions requires each
+          development step to be verified and validated.</div>
+        </div>
+        <div class="card">
+          <h3>2. Customer–supplier relationship</h3>
+          <p>The project team must cooperate continuously with the customer, considering change
+          requests and obtaining customer approval for developer-initiated changes.</p>
+          <div class="note">Because requirements evolve after initial agreement, an Agile SQA process is often required.</div>
+        </div>
+        <div class="card">
+          <h3>3. Teamwork</h3>
+          <p>Completing a project on time needs more than one person and a variety of specializations.</p>
+          <div class="note">Predefined design/development standards and version control are needed to limit unnecessary "bugs."</div>
+        </div>
+        <div class="card">
+          <h3>4. Coordination with other software teams</h3>
+          <p>Other in-house teams, outsourced supplier teams, and customer-side teams may all take part in development.</p>
+          <div class="note">Subcontracting statements of work must incorporate quality control.</div>
+        </div>
+        <div class="card">
+          <h3>5. Interfaces with other software systems</h3>
+          <p>Input interfaces, output interfaces, and input/output interfaces to a machine's control board.</p>
+          <div class="note">Interfaces — especially where certificates are required for a transaction — must be reliable.</div>
+        </div>
+        <div class="card">
+          <h3>6. Continuity despite team changes</h3>
+          <p>The software industry is highly dynamic; every new resource needs training time, and skills vary widely.</p>
+          <div class="note">Defined quality-control processes reduce the risk of losing track of timelines.</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>7. Continuing maintenance over an extended period</h3>
+        <p>Customers expect to keep using a system for years, so maintenance needs will eventually arise
+        and the developer is required to supply these services directly.</p>
+        <div class="note">A well-defined process ensures the requisite quality is maintained throughout the maintenance period.</div>
+      </div>
+
+      <h2 id="qa">Quality assurance as a profession</h2>
+      <p>
+        In a profession like software development there is an ethical imperative to quality:
+        it is not just a marketing or perception issue, but a moral and legal responsibility.
+        Professionals must be able to demonstrate — and have confidence — that they are using
+        "best practices."
+      </p>
+      <p>In practical terms, product quality must be measurable. It is typically spoken of in terms of:</p>
+      <ul>
+        <li><strong>Conformance to requirements</strong> — including timeliness and cost.</li>
+        <li><strong>Fitness for use</strong> — does it actually do the job?</li>
+        <li><strong>Freedom from errors and failures</strong> — is it reliable and robust?</li>
+        <li><strong>Customer satisfaction</strong> — are users happy with it?</li>
+      </ul>
+
+      <div class="footer-nav">
+        <a href="../index.html"><span class="dir">&larr; Back to</span><div class="title">Course overview</div></a>
+        <a class="next" href="lecture2.html"><span class="dir">Next</span><div class="title">Lecture 2 — Software Quality &amp; SQA &rarr;</div></a>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

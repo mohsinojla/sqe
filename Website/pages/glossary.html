@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glossary | SE307T</title>
+<meta name="description" content="Every defined term across the five lectures and the ISO/IEC/IEEE 90003 standard, in one place." />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">Glossary</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">All lectures &middot; A–Z</span>
+        <h1>Glossary</h1>
+        <p class="lede">Every defined term used across the five lectures and the ISO/IEC/IEEE
+        90003 standard. Use <kbd>Ctrl</kbd>+<kbd>F</kbd> to jump straight to a term.</p>
+      </section>
+
+      <input id="filterBox" type="text" placeholder="Filter terms…" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.95rem; margin-bottom:24px;" />
+
+      <div id="termList">
+
+        <div class="card term">
+          <h3>Baseline</h3>
+          <p>Formally approved version of a configuration item, regardless of media, formally
+          designated and fixed at a specific time during the configuration item's life cycle.
+          <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Configuration item</h3>
+          <p>An item or aggregation of hardware, software, or both, designated for configuration
+          management and treated as a single entity in the configuration management process.
+          <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Contract review</h3>
+          <p>A pre-project SQA component with two stages — proposal draft review (before
+          submission to the customer) and contract draft review (before signing) — used to catch
+          loosely defined requirements and unrealistic budgets/schedules before they cause quality problems.
+          <em>(Lecture 4)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Correctness</h3>
+          <p>A product operation quality factor covering the output mission, required accuracy,
+          completeness, up-to-dateness, availability, and coding/documentation standards compliance.
+          <em>(Lecture 3 — McCall's model)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>COTS (Commercial-Off-The-Shelf)</h3>
+          <p>A product available for purchase and use without the need to conduct development
+          activities. <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Efficiency</h3>
+          <p>A product operation quality factor: the hardware resources needed to perform all the
+          functions of the software. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Flexibility</h3>
+          <p>A product revision quality factor: the capabilities and effort required to support
+          adaptive maintenance activities. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Implementation</h3>
+          <p>The process of translating a design into hardware components, software components, or both.
+          <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Integrity</h3>
+          <p>A product operation quality factor dealing with software system security — preventing
+          unauthorized access and restricting read/write access. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Interoperability</h3>
+          <p>A product transition quality factor: creating interfaces with other software systems
+          or with other equipment firmware. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Life cycle model</h3>
+          <p>A framework of processes and activities concerned with the life cycle, organized into
+          stages, that also acts as a common reference for communication and understanding.
+          <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Maintainability</h3>
+          <p>A product revision quality factor: the effort needed by users and maintenance
+          personnel to identify the reasons for failures, correct them, and verify success —
+          supported by modular structure and documentation. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>PDCA cycle (Plan-Do-Check-Act)</h3>
+          <p>A four-stage cycle for managing processes and a quality management system as a whole:
+          Plan (set objectives and resources), Do (implement), Check (monitor and measure against
+          objectives), Act (improve performance). <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Portability</h3>
+          <p>A product transition quality factor: adapting a software system to other environments
+          — different hardware, different operating systems, and so on. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Quality assurance (QA)</h3>
+          <p>IEEE: (1) A planned and systematic pattern of all actions necessary to provide
+          adequate confidence that an item or product conforms to established technical
+          requirements; (2) a set of activities designed to evaluate the process by which the
+          products are developed or manufactured — contrast with quality control. Carried out
+          <strong>throughout</strong> development and maintenance. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Quality control (QC)</h3>
+          <p>"A set of activities designed to evaluate the quality of a developed or manufactured
+          product" (IEEE, 1991) — done <strong>once production is complete</strong>.
+          <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Quality engineering</h3>
+          <p>Managing customers' varying quality expectations as an engineering problem: selecting
+          and executing appropriate QA activities to meet or exceed expectations while minimizing
+          cost and project risk. Comprises pre-QA, in-QA, and post-QA activities.
+          <em>(Lecture 5 — Jeff Tian)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Quality factor</h3>
+          <p>A content group classifying issues related to software attributes, use and
+          maintenance, as defined in requirements documents. McCall's model defines 11 quality
+          factors across product operation, revision and transition categories. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Regression testing</h3>
+          <p>Testing following a modification to a test item or its operational environment, to
+          identify whether regression failures occur. <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Reliability</h3>
+          <p>A product operation quality factor dealing with failures to provide service — the
+          maximum allowed software system failure rate. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Reusability</h3>
+          <p>A product transition quality factor: using modules originally designed for one
+          project in a new project, saving resources, shortening development, and providing
+          higher-quality modules. <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Risk-based thinking</h3>
+          <p>Determining the factors that could cause processes and the quality management system
+          to deviate from planned results, putting in place preventive controls to minimize
+          negative effects, and maximizing opportunities as they arise. <em>(ISO/IEC/IEEE 90003)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software (IEEE definition)</h3>
+          <p>Computer programs, procedures, and possibly associated documentation and data
+          pertaining to the operation of a computer system. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software error</h3>
+          <p>A mistake made by a programmer — a grammatical error in code, or a logical error in
+          carrying out one or more of the client's requirements. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software failure</h3>
+          <p>Disruption of the use of the software caused by triggering ("activating") a certain
+          fault. A fault becomes a failure only once activated. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software fault</h3>
+          <p>A software error that can cause improper functioning of the software in general or in
+          a specific application. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software quality (Pressman's definition)</h3>
+          <p>Conformance to explicitly stated functional and performance requirements, explicitly
+          documented development standards, and implicit characteristics expected of all
+          professionally developed software. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Software quality assurance — expanded definition</h3>
+          <p>A systematic, planned set of actions necessary to provide adequate confidence that
+          the software development or maintenance process conforms to established functional
+          technical requirements as well as managerial requirements of keeping schedule and
+          operating within budgetary confines. <em>(Lecture 2)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Testability</h3>
+          <p>A product revision quality factor: special features in the programs that help the
+          tester, e.g. predefined intermediate results, log files, and automatic diagnostics at startup.
+          <em>(Lecture 3)</em></p>
+        </div>
+
+        <div class="card term">
+          <h3>Usability</h3>
+          <p>A product operation quality factor: the scope of staff resources needed to train a
+          new employee and to operate the software system. <em>(Lecture 3)</em></p>
+        </div>
+
+      </div>
+
+      <p id="noResults" style="display:none; color:var(--text-muted);">No terms match your filter.</p>
+
+      <div class="footer-nav">
+        <a href="proposal-review.html"><span class="dir">&larr; Previous</span><div class="title">Contract Review Checklists</div></a>
+        <a class="next" href="../index.html"><span class="dir">Back to</span><div class="title">Course overview &rarr;</div></a>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script>
+  const filterBox = document.getElementById('filterBox');
+  const terms = Array.from(document.querySelectorAll('.term'));
+  const noResults = document.getElementById('noResults');
+  filterBox.addEventListener('input', () => {
+    const q = filterBox.value.trim().toLowerCase();
+    let visible = 0;
+    terms.forEach(t => {
+      const match = t.textContent.toLowerCase().includes(q);
+      t.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  });
+</script>
+</body>
+</html>

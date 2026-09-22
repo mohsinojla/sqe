@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SE307T — Software Quality Engineering</title>
+<meta name="description" content="A complete study companion for SE307T Software Quality Engineering — lectures, models, standards and checklists." />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app">
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="logo">SE</div>
+        <div>SE307T<div class="brand-sub">Software Quality Engineering</div></div>
+      </div>
+    </div>
+
+    <nav class="nav-group">
+      <div class="nav-group-title">Course</div>
+      <a class="nav-link" href="index.html"><span class="nav-icon">🏠</span> Overview</a>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-group-title">Lectures</div>
+      <a class="nav-link" href="pages/lecture1.html"><span class="nav-icon">01</span> Introduction &amp; Why Quality</a>
+      <a class="nav-link" href="pages/lecture2.html"><span class="nav-icon">02</span> Software Quality &amp; SQA</a>
+      <a class="nav-link" href="pages/lecture3.html"><span class="nav-icon">03</span> McCall's Quality Factors</a>
+      <a class="nav-link" href="pages/lecture4.html"><span class="nav-icon">04</span> SQA System Components</a>
+      <a class="nav-link" href="pages/lecture5.html"><span class="nav-icon">05</span> Quality Engineering</a>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-group-title">Reference &amp; Practice</div>
+      <a class="nav-link" href="pages/iso90003.html"><span class="nav-icon">📘</span> ISO/IEC/IEEE 90003:2018</a>
+      <a class="nav-link" href="pages/proposal-review.html"><span class="nav-icon">📋</span> Contract Review Checklists</a>
+      <a class="nav-link" href="pages/glossary.html"><span class="nav-icon">🔤</span> Glossary</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <div class="topbar-title">Course Overview</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-hero">
+        <span class="eyebrow">SE307T &middot; Credits 3+0</span>
+        <h1>Software Quality Engineering</h1>
+        <p class="lede">
+          A complete, organized companion built from every lecture in the course — quality
+          fundamentals, the SQA system, McCall's quality factor model, quality engineering
+          activities, and the ISO/IEC/IEEE 90003 standard for applying ISO 9001 to software.
+        </p>
+      </section>
+
+      <div class="stat-row">
+        <div class="stat"><div class="num">5</div><div class="label">Lectures</div></div>
+        <div class="stat"><div class="num">11</div><div class="label">McCall Quality Factors</div></div>
+        <div class="stat"><div class="num">9</div><div class="label">Reasons for Errors</div></div>
+        <div class="stat"><div class="num">6</div><div class="label">SQA System Components</div></div>
+      </div>
+
+      <h2>Lectures</h2>
+      <div class="landing-grid">
+
+        <a class="lecture-card" href="pages/lecture1.html">
+          <div class="lecture-num">01</div>
+          <h3>Introduction &amp; Why Software Quality</h3>
+          <p>Course logistics, what "quality" means, why critical systems fail (Challenger,
+          Mars Climate Orbiter), and why software needs its own QA discipline.</p>
+        </a>
+
+        <a class="lecture-card" href="pages/lecture2.html">
+          <div class="lecture-num">02</div>
+          <h3>Software Quality &amp; SQA</h3>
+          <p>Errors vs. faults vs. failures, the 9 reasons for software errors, Pressman's
+          definition of quality, and SQA vs. quality control.</p>
+        </a>
+
+        <a class="lecture-card" href="pages/lecture3.html">
+          <div class="lecture-num">03</div>
+          <h3>McCall's Quality Factors</h3>
+          <p>The 11 software quality factors across operation, revision and transition
+          categories — with worked examples and sub-factor tables.</p>
+        </a>
+
+        <a class="lecture-card" href="pages/lecture4.html">
+          <div class="lecture-num">04</div>
+          <h3>Components of the SQA System</h3>
+          <p>The six-part SQA system: pre-project components, life-cycle activities,
+          infrastructure, management, standardization, and human organization.</p>
+        </a>
+
+        <a class="lecture-card" href="pages/lecture5.html">
+          <div class="lecture-num">05</div>
+          <h3>Quality Engineering</h3>
+          <p>Pre-QA, in-QA and post-QA activities, quality planning and strategy formation,
+          cost of quality, and the quality engineering effort profile.</p>
+        </a>
+
+        <a class="lecture-card" href="pages/iso90003.html">
+          <div class="lecture-num">📘</div>
+          <h3>ISO/IEC/IEEE 90003:2018</h3>
+          <p>Guidelines for applying ISO 9001:2015 to computer software — scope, structure,
+          the PDCA cycle and risk-based thinking.</p>
+        </a>
+
+      </div>
+
+      <h2>Practical Tools</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>📋 Contract Review Checklists</h3>
+          <p>The full proposal-draft-review and contract-draft-review subject checklists
+          (Appendices 5A &amp; 5B) used in Lecture 4's contract review stage.</p>
+          <a href="pages/proposal-review.html">Open checklist &rarr;</a>
+        </div>
+        <div class="card">
+          <h3>🔤 Glossary</h3>
+          <p>Every defined term across the five lectures — error, fault, failure, quality
+          factor, QA vs. QC, baseline, COTS and more — in one searchable place.</p>
+          <a href="pages/glossary.html">Open glossary &rarr;</a>
+        </div>
+      </div>
+
+      <h2>How this course fits together</h2>
+      <p>
+        The course builds in three layers, mirrored by the site navigation:
+      </p>
+      <ol>
+        <li><strong>Foundations</strong> (Lectures 1–2): what quality is, why software is
+        different from other industrial products, and why errors happen in the first place.</li>
+        <li><strong>Structuring quality</strong> (Lecture 3): translating quality into 11
+        concrete, measurable requirement factors using McCall's model.</li>
+        <li><strong>Running the system</strong> (Lectures 4–5): the organizational components
+        of an SQA system and the engineering process — planning, executing and assessing
+        quality activities — plus the ISO/IEC/IEEE 90003 standard that governs it formally.</li>
+      </ol>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
